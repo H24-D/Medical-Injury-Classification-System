@@ -1,0 +1,10 @@
+const express = require('express'); 
+const router = express.Router(); 
+const injuryController = require('../controllers/injuryController'); 
+router.get('/', injuryController.getAllInjuries); 
+router.get('/search', injuryController.searchInjuries); 
+router.get('/:id', injuryController.getInjuryById); 
+router.post('/', injuryController.createInjury); 
+router.put('/:id', injuryController.updateInjury); 
+router.delete('/:id', injuryController.deleteInjury); 
+module.exports = router; 
