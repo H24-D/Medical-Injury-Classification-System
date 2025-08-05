@@ -24,36 +24,18 @@ A full-stack web application to manage, search, and perform CRUD operations on m
  Version Control - Git 
 
 ## Installation & Setup
-1. Clone the Repository
--git clone 
+### 1. Clone the Repository 
+-git clone https://github.com/H24-D/Medical-Injury-Classification-System.git
 
--cd Personal Book Tracker
+-cd Medical Injury Classification
 
-2.Create MySQL Database and Table
+### 2.Create MySQL Database and Table
 -Open MySQL Workbench
 
 -Connect to your local MySQL server
 
-Run this SQL to Create the Database and Table
-CREATE DATABASE tracker_db;
 
-use tracker_db;
-
-CREATE TABLE book_tracker(
-
-id VARCHAR(36) PRIMARY KEY,
-
-title VARCHAR(255) NOT NULL,
-
-author VARCHAR(255) NOT NULL,
-
-status ENUM('read','reading','to-read') NOT NULL,
-
-review TEXT
-
-);
-
-3. Setup Backend
+### 3. Setup Backend
 -cd backend
 
 -npm install express mysql2 cors dotenv uuid
@@ -62,7 +44,7 @@ review TEXT
 
 -run on:http://localhost:5000
 
-3. Setup Frontend
+### 4. Setup Frontend
 -cd../frontend
 
 -npm install axios react-router-dom
