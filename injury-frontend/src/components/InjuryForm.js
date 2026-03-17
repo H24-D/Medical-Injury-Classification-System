@@ -12,7 +12,7 @@ export default function InjuryForm() {
  
   useEffect(() => { 
     if (id) { 
-      axios.get(`http://localhost:5000/api/injuries/${id}`) 
+      axios.get(`https://injury-backend-kwmv.onrender.com/api/injuries/${id}`) 
         .then(res => { 
           const injury = res.data; 
           setTerm(injury.term); 
@@ -27,9 +27,9 @@ export default function InjuryForm() {
     const data = { term, category, field }; 
  
     if (id) { 
-      await axios.put(`http://localhost:5000/api/injuries/${id}`, data); 
+      await axios.put(`https://injury-backend-kwmv.onrender.com/api/injuries/${id}`, data); 
     } else { 
-      await axios.post('http://localhost:5000/api/injuries', data); 
+      await axios.post('https://injury-backend-kwmv.onrender.com/api/injuries', data); 
     } 
  
     navigate('/'); 
