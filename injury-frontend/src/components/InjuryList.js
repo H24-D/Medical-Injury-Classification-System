@@ -5,7 +5,7 @@ const [injuries, setInjuries] = useState([]);
 const [searchTerm,setSearchTerm]=useState('');
 
 useEffect(() => { 
-axios.get('http://localhost:5000/api/injuries') 
+axios.get('https://injury-backend-kwmv.onrender.com/api/injuries') 
 .then(res => setInjuries(res.data)); 
 }, []); 
 useEffect(() => {
@@ -13,7 +13,7 @@ useEffect(() => {
   }, []);
 
   const fetchInjuries = async () => {
-    const res = await axios.get('http://localhost:5000/api/injuries');
+    const res = await axios.get('https://injury-backend-kwmv.onrender.com/api/injuries');
     setInjuries(res.data);
   };
 
@@ -24,7 +24,7 @@ useEffect(() => {
     if (q.trim() === '') {
       fetchInjuries(); // load all
     } else {
-      const res = await axios.get(`http://localhost:5000/api/injuries/search?q=${q}`);
+      const res = await axios.get(`https://injury-backend-kwmv.onrender.com/api/injuries/search?q=${q}`);
       setInjuries(res.data);
     }
   };
