@@ -1,11 +1,14 @@
-const express = require('express'); 
-const cors = require('cors'); 
-const injuryRoutes = require('./routes/injuryRoutes'); 
-require('dotenv').config(); 
-const app = express(); 
-app.use(cors()); 
-app.use(express.json()); 
-app.use('/api/injuries', injuryRoutes); 
+const express = require('express');
+const cors = require('cors');
+require('dotenv').config();
+const db = require('./db');
+const injuryRoutes = require('./routes/injuryRoutes');
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+app.use('/api/injuries', injuryRoutes);
+
 // Auto-create table if not exists
 db.query(`
   CREATE TABLE IF NOT EXISTS injury_dictionary (
@@ -19,5 +22,6 @@ db.query(`
 }).catch(err => {
   console.error('Table creation error:', err);
 });
-const PORT = process.env.PORT || 5000; 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`)); 
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
