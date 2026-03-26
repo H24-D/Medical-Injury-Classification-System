@@ -5,100 +5,216 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f4f8;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-/* App.css */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  margin: 0;
-  padding: 0;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+/* ── Container ── */
 .app-container {
-  max-width: 600px;
+  max-width: 700px;
   margin: 40px auto;
   padding: 30px;
   background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 h2 {
+  margin-top: 0;
   margin-bottom: 20px;
+  font-size: 1.6rem;
+  color: #1a202c;
 }
 
-input[type="text"],
-input[type="submit"],
-input[type="button"],
-input[type="email"],
-input[type="number"] {
-  padding: 10px;
-  margin: 8px 0;
-  width: 90%;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+/* ── Top bar: search + add button ── */
+.top-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: center;
 }
 
-button {
-  padding: 10px 20px;
+.top-bar input[type='text'] {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.top-bar input[type='text']:focus {
+  border-color: #1976d2;
+}
+
+.add-btn {
+  padding: 10px 18px;
   background-color: #1976d2;
-  color: white;
+  color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
   cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s;
 }
 
-button:hover {
+.add-btn:hover {
   background-color: #1565c0;
 }
 
+/* ── List ── */
 ul {
   list-style: none;
   padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 li {
-  background-color: #e3f2fd;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e8f4fd;
+  border: 1px solid #bee3f8;
+  border-radius: 8px;
+  padding: 12px 16px;
+  gap: 12px;
 }
 
+/* ── Injury text info ── */
+.injury-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.injury-term {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #1a202c;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.injury-meta {
+  font-size: 0.82rem;
+  color: #4a5568;
+}
+
+/* ── Action buttons ── */
+.injury-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 7px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.edit-btn:active,
+.delete-btn:active {
+  transform: scale(0.96);
+}
+
+.edit-btn {
+  background-color: #2b6cb0;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background-color: #2c5282;
+}
+
+.delete-btn {
+  background-color: #e53e3e;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background-color: #c53030;
+}
+
+/* ── Empty state ── */
+.empty-msg {
+  text-align: center;
+  color: #718096;
+  font-size: 0.95rem;
+  margin-top: 20px;
+}
+
+/* ── Form styles ── */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 
 .form-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 15px;
+  gap: 12px;
+  margin-bottom: 8px;
 }
 
 .form-group label {
-  margin-bottom: 5px;
-  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #2d3748;
+  text-align: left;
 }
 
 .form-group input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.save-button {
+  padding: 10px 12px;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
   width: 100%;
-  padding: 10px;
-  background-color: #337cf3;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
 }
 
+.form-group input:focus {
+  border-color: #1976d2;
+}
+
+button[type='submit'],
+.save-button {
+  padding: 11px 20px;
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+}
+
+button[type='submit']:hover,
 .save-button:hover {
-  background-color: #255ec0;
+  background-color: #1565c0;
 }
